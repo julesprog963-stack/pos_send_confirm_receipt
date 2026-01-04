@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_send_confirm_receipt.SendButton">
+        <div class="oe_status cursor-pointer d-flex align-items-center gap-1 pos-send-nav" t-on-click="onClick">
+            <i class="fa fa-arrow-up" role="img" aria-label="Send" title="Send" />
+            <span>Enviar</span>
+        </div>
+    </t>
+
+    <t t-name="pos_send_confirm_receipt.NavbarSendButton" t-inherit="point_of_sale.Navbar" t-inherit-mode="extension">
+        <xpath expr="//div[contains(@class, 'status-buttons')]" position="inside">
+            <SendButton t-if="pos.config.trusted_config_ids.length > 0" />
+        </xpath>
+    </t>
+
+</templates>
