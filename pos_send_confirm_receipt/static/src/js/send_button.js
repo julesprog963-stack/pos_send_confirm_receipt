@@ -19,7 +19,6 @@ export class SendButton extends SaveButton {
     async onClick() {
         const order = this.pos.get_order();
         const hasProducts = order?.get_orderlines().length;
-
         if (!hasProducts) {
             await this.popup.add(ErrorPopup, {
                 title: _t("Pedido vacío"),
@@ -40,34 +39,13 @@ export class SendButton extends SaveButton {
             return;
         }
 
+        super.onClick();
         const orderToSend = this.pos.get_order();
-        const savePromise = this._executeNativeSave();
-        await savePromise;
-
         await this.popup.add(ErrorPopup, {
             title: _t("Orden enviada"),
             body: _t("%s enviada con éxito", orderToSend.get_name()),
             confirmText: _t("OK"),
         });
-    }
-
-    _executeNativeSave() {
-        const originalSendDraftToServer = this.pos.sendDraftToServer.bind(this.pos);
-        let sendDraftPromise = Promise.resolve();
-
-        this.pos.sendDraftToServer = (...args) => {
-            const promise = originalSendDraftToServer(...args);
-            sendDraftPromise = promise;
-            return promise;
-        };
-
-        try {
-            super.onClick();
-        } finally {
-            this.pos.sendDraftToServer = originalSendDraftToServer;
-        }
-
-        return sendDraftPromise;
     }
 }
 
