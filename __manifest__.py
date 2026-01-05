@@ -6,7 +6,7 @@
     "category": "Point of Sale",
     "author": "JDA SOLUTIONS",
     "website": "https://github.com/julesprog963-stack/pos_send_confirm_receipt.git",
-    "license": "LGPL-2.1",
+    "license": "LGPL-3",
     "depends": ["point_of_sale"],
     "assets": {
         "point_of_sale._assets_pos": [
@@ -15,9 +15,9 @@
         ],
     },
     "images": [
-        "pos_send_confirm_receipt/static/description/icon.png",
-        "pos_send_confirm_receipt/static/description/screenshot_confirm.png",
-        "pos_send_confirm_receipt/static/description/screenshot_success.png",
-        "pos_send_confirm_receipt/static/description/screenshot_list.png",
+        "static/description/icon.png",
+        "static/description/screenshot_confirm.png",
+        "static/description/screenshot_success.png",
+        "static/description/screenshot_list.png",
     ],
 }
