@@ -39,11 +39,11 @@ export class SendButton extends SaveButton {
             return;
         }
 
+        const orderName = order.get_name(); // capturamos la referencia antes del envío
         super.onClick();
-        const orderToSend = this.pos.get_order();
         await this.popup.add(ErrorPopup, {
             title: _t("Orden enviada"),
-            body: _t("%s enviada con éxito", orderToSend.get_name()),
+            body: _t("%s enviada con éxito", orderName),
             confirmText: _t("OK"),
         });
     }
