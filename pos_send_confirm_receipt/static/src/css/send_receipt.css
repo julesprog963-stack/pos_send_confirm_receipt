@@ -1,0 +1,27 @@
+.pos-send-receipt-ticket {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.15;
+}
+
+.pos-send-receipt-ticket .pos-receipt-center-align,
+.pos-send-receipt-ticket .pos-receipt-order-data {
+    margin-top: 0 !important;
+}
+
+@media print {
+    @page {
+        margin: 0 !important;
+    }
+
+    html,
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .pos-send-receipt-ticket {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}

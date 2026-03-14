@@ -14,4 +14,25 @@
         </xpath>
     </t>
 
+    <t t-name="pos_send_confirm_receipt.SendReceipt58mm">
+        <div class="pos-receipt pos-send-receipt-ticket" style="font-size: 12px;">
+            <div class="pos-receipt-center-align" style="font-weight: 700; font-size: 15px; margin-bottom: 6px;">
+                <t t-esc="props.data.companyName" />
+            </div>
+            <div class="pos-receipt-center-align" style="margin-bottom: 4px;">
+                FOLIO
+            </div>
+            <div class="pos-receipt-center-align" style="font-size: 19px; font-weight: 800; margin-bottom: 8px; word-break: break-word;">
+                <t t-esc="props.data.orderName" />
+            </div>
+            <div class="pos-receipt-center-align" style="margin-bottom: 6px;">
+                <img t-att-src="props.data.barcodeSrc" alt="Code128" style="width: 100%; max-width: 57mm; height: 17mm; object-fit: contain;"/>
+            </div>
+            <div class="pos-receipt-order-data">
+                <div><strong>Fecha:</strong> <t t-esc="props.data.date" /></div>
+                <div><strong>Total:</strong> <t t-esc="props.data.total" /></div>
+            </div>
+        </div>
+    </t>
+
 </templates>
